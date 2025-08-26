@@ -34,7 +34,7 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 ### 🌐 Nginx Reverse Proxy & Local Load Balancing
 - Nginx sits in front of Flask containers, proxying traffic on port `5002`.  
 - Useful for **local development** to simulate load balancing (`docker compose up --scale web=3`).  
-- In production, this role is typically replaced by **AWS Application Load Balancer (ALB)** for auto-scaling and managed TLS.  
+- In production, this role is typically replaced by AWS Application Load Balancer for auto-scaling and managed TLS.  
 
 ---
 
@@ -57,6 +57,7 @@ docker compose up -d --build
 Resetting the Counter (Optional)
 
 If ENABLE_RESET=true is set in the environment, visit:
+
 
 
 
