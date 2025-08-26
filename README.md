@@ -39,12 +39,6 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 ---
 
 ## 📂 Project Structure
-
-
-
-
-
-
 ---
 ├── count.py # Flask app (visit tracker + Redis backend)
 ├── templates/ # Jinja2 templates
@@ -63,6 +57,7 @@ docker compose up -d --build
 Resetting the Counter (Optional)
 
 If ENABLE_RESET=true is set in the environment, visit:
+
 
 
 
