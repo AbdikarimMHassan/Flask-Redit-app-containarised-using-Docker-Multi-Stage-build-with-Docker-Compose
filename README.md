@@ -39,21 +39,20 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 ---
 
 ## 📂 Project Structure
-.
-├── count.py           # Flask app (visit tracker + Redis backend)
-├── templates/         # Jinja2 templates
-├── static/            # CSS/JS assets
-├── Dockerfile         # Multi-stage build (build + prod)
-├── docker-compose.yml # Orchestrates Flask, Redis, Nginx
-├── nginx.conf         # Reverse proxy config
-└── README.md
+
 
 
 
 
 
 ---
-
+├── count.py # Flask app (visit tracker + Redis backend)
+├── templates/ # Jinja2 templates
+├── static/ # CSS/JS assets
+├── Dockerfile # Multi-stage build (build + prod)
+├── docker-compose.yml # Orchestrates Flask, Redis, Nginx
+├── nginx.conf # Reverse proxy config
+└── README.md
 ## ⚙️ Running the Stack
 
 ### Local Build + Run
@@ -64,5 +63,6 @@ docker compose up -d --build
 Resetting the Counter (Optional)
 
 If ENABLE_RESET=true is set in the environment, visit:
+
 
 
