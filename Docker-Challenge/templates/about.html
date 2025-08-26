@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="about card">
+  <h1>About</h1>
+  <p class="lead">{{ owner_bio }}</p>
+
+  <ul class="links">
+    {% if github_url %}<li><a target="_blank" href="{{ github_url }}">GitHub</a></li>{% endif %}
+    {% if linkedin_url %}<li><a target="_blank" href="{{ linkedin_url }}">LinkedIn</a></li>{% endif %}
+  </ul>
+
+  <h3>Tech bits</h3>
+  <ul class="bullets">
+    <li>Flask + Redis + Nginx (reverse proxy)</li>
+    <li>Containerized with Docker and orchestrated via Docker Compose</li>
+    <li>Leaflet + OpenStreetMap for a lightweight interactive map</li>
+    <li>JSON APIs: <code>/api/visits</code> and <code>/api/locations</code></li>
+  </ul>
+</section>
+{% endblock %}

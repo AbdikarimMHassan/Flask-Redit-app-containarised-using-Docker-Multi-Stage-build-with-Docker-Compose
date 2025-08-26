@@ -1,0 +1,43 @@
+* { box-sizing: border-box; }
+:root {
+  --fg: #0b132b;
+  --muted: #4f5d75;
+  --card: rgba(255,255,255,0.9);
+  --accent: #6c63ff;
+  --accent-2: #ff6584;
+}
+html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--fg); }
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+.gradient-bg {
+  position: fixed; inset: 0;
+  background: radial-gradient(1200px 600px at -10% -10%, var(--accent) 0%, transparent 60%),
+              radial-gradient(1000px 500px at 110% 20%, var(--accent-2) 0%, transparent 60%),
+              linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  z-index: -1; filter: saturate(1.2);
+}
+.nav { display: flex; gap: 1rem; align-items: center; }
+.nav a { text-decoration: none; color: var(--fg); font-weight: 600; }
+.brand { font-size: 1.1rem; padding: .35rem .6rem; background: var(--card); border-radius: 999px; }
+.spacer { flex: 1; }
+.github-badge { border: 1px solid #ddd; padding: .35rem .6rem; border-radius: .6rem; background: white; }
+
+.hero { padding: 2rem 0; }
+.hero h1 { font-size: 2.2rem; margin: 0 0 .25rem; }
+.tagline { color: var(--muted); margin-top: .25rem; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card { background: var(--card); backdrop-filter: blur(6px); border: 1px solid rgba(0,0,0,0.05); border-radius: 1rem; padding: 1rem 1.2rem; box-shadow: 0 10px 25px rgba(0,0,0,.05); }
+.card h2 { margin-top: 0; }
+.quote blockquote { font-size: 1.1rem; line-height: 1.4; margin: 0; }
+
+.counter { font-size: 3rem; font-weight: 800; margin: .25rem 0 1rem; }
+.btn { display: inline-block; text-decoration: none; background: var(--accent); color: white; padding: .6rem 1rem; border-radius: .8rem; font-weight: 700; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(108,99,255,.3); }
+
+.map-wrap { margin-top: 1rem; }
+.map { height: 420px; border-radius: .8rem; overflow: hidden; }
+
+.about .lead { font-size: 1.05rem; color: var(--fg); }
+.links, .bullets { display: grid; gap: .35rem; padding-left: 1rem; }
+.footer { color: var(--muted); font-size: .9rem; padding: 2rem 0; }
+code { background: #eef2ff; padding: .1rem .3rem; border-radius: .3rem; }

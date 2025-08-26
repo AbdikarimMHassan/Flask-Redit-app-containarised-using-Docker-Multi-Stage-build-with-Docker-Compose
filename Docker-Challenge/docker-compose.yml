@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  web:
+    image: 779846800049.dkr.ecr.eu-north-1.amazonaws.com/flask-redis
+    expose:
+      - "5002"                # internal port for Nginx to proxy to
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+
+      
+      SITE_TITLE: "Abdikarim's Visit Tracker Pro"
+      OWNER_NAME: "Abdikarim Hassan"
+      OWNER_TAGLINE: "DevOps Engineer"
+      OWNER_BIO: "DevOps Engineer who loves to automate with CI/CD, and containerize all the things."
+      GITHUB_URL: "https://github.com/AbdikarimMHassan"
+      LINKEDIN_URL: "https://www.linkedin.com/in/abdikarim-hassan-22b9201a6"
+      ENABLE_RESET: "false"   
+
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    # No host port published -> keeps Redis internal to the network
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "5002:5002"           # expose Nginx on host:5002
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
+    restart: unless-stopped
+
+volumes:
+  redis-data:

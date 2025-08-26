@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Welcome 👋</h1>
+  <p class="tagline">A tiny app with personality: visit counter + world map pins + rotating quotes.</p>
+</section>
+
+<section class="cards">
+  <div class="card">
+    <h2>Visits</h2>
+    <p class="counter">{{ count }}</p>
+    <a class="btn" href="{{ url_for('visit') }}">Add a Visit</a>
+    <p class="muted">Each click drops a new random pin on the map.</p>
+  </div>
+
+  <div class="card quote">
+    <h2>Quote of the Refresh</h2>
+    <blockquote>“{{ quote }}”</blockquote>
+  </div>
+</section>
+
+<section class="map-wrap card">
+  <h2>Visitor Map</h2>
+  <div id="map" class="map"></div>
+</section>
+
+<script>
+  async function loadMarkers() {
+    try {
+      const res = await fetch("{{ url_for('api_locations') }}");
+      const data = await res.json();
+      return data.locations || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  const map = L.map('map', { scrollWheelZoom: false }).setView([20, 0], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 5,
+    attribution: '&copy; OpenStreetMap'
+  }).addTo(map);
+
+  loadMarkers().then(markers => {
+    markers.forEach(m => L.marker([m.lat, m.lng]).addTo(map).bindPopup(m.note || "Visit"));
+  });
+</script>
+{% endblock %}
