@@ -11,7 +11,7 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 - **Automatic networking**: services discover each other by name (e.g. `REDIS_HOST=redis`).  
 - **Single command spin-up**: `docker compose up` starts the full stack, no manual linking required.  
 
----
+
 
 ### ⚡ Multi-Stage Build with Wheels
 - **Build stage**: pre-downloads Python dependencies (`flask`, `redis`) into wheels.  
@@ -29,7 +29,7 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 - **IAM authentication required** → only authorised users/services can pull images.  
 - **Cloud-ready workflow** → same image runs locally and in AWS ECS/EKS.  
 
----
+```
 
 ### 🌐 Nginx Reverse Proxy & Local Load Balancing
 - Nginx sits in front of Flask containers, proxying traffic on port `5002`.  
@@ -57,6 +57,7 @@ docker compose up -d --build
 Resetting the Counter (Optional)
 
 If ENABLE_RESET=true is set in the environment, visit:
+
 
 
 
