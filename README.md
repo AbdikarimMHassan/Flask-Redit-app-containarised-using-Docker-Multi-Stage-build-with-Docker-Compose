@@ -52,10 +52,8 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 ### Local Build + Run
 ```bash
 docker compose up -d --build
-
-
-
-
+---
+![Alt text](image.png)
 
 
 
