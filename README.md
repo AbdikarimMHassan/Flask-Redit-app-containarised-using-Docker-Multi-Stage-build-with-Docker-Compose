@@ -53,7 +53,8 @@ This project containerises a small **Flask + Redis** app, using **Docker best pr
 ```bash
 docker compose up -d --build
 ```
-![ Flask App](./images/image.png)
+![Alt text](image.png)
+
 
 
 
